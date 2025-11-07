@@ -1,15 +1,11 @@
 @import "tailwindcss";
 
+/* =========================================================
+   🎨 BASE
+========================================================= */
 :root {
-  --background: #ffffff;
+  --background: #fff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +18,279 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   ✍️ FUENTES UTILITARIAS
+========================================================= */
+.font-cinzel {
+  font-family: var(--font-cinzel), serif;
+}
+
+.font-cinzel-dec {
+  font-family: var(--font-cinzel-dec), serif;
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant), serif;
+}
+
+a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* =========================================================
+   🔥 NAVBAR LINKS (línea blanca animada desde el centro)
+========================================================= */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #ffffff;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
+}
+
+/* =========================================================
+   🧭 HERO SECTION (SVG draw + fill animation)
+========================================================= */
+.hero-wrap {
+  container-type: inline-size;
+}
+
+.hero-draw-svg {
+  display: block;
+  overflow: visible;
+}
+
+/* Título en Cinzel Decorative */
+.hero-draw-svg text {
+  font-family: var(--font-cinzel-dec), serif;
+  font-weight: 600;                  /* menos “bold” */
+  font-size: clamp(72px, 12vw, 190px);
+  letter-spacing: 0.01em;
+}
+/* Animación de dibujo del texto */
+/* Hero draw — más delicado */
+.hero-stroke {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 1.2;                 /* más fino que antes */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+  animation: heroDraw 2.6s ease-in-out forwards;
+}
+.hero-fill {
+  fill: #fff;
+  opacity: 0;
+  animation: heroFill 1s ease-out 2.5s forwards;
+}
+
+@keyframes heroDraw { to { stroke-dashoffset: 0; } }
+@keyframes heroFill { to { opacity: 1; } }
+
+/* En móviles, reduce el título */
+@media (max-width: 640px) {
+  .hero-draw-svg text {
+    font-size: clamp(40px, 12vw, 72px);
+  }
+}
+
+/* =========================================================
+   ⚡ CTA "Reserva una mesa" animado (subrayado + flecha)
+========================================================= */
+.link-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 2px;
+  color: #fff;
+  transition: color 0.25s ease;
+}
+
+/* Subrayado animado */
+.link-cta::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1.5px;
+  width: 0;
+  background-color: currentColor;
+  transition: width 0.35s ease;
+}
+
+.link-cta:hover::after,
+.link-cta:focus-visible::after {
+  width: 100%;
+}
+
+/* Flechas animadas */
+.link-cta .arr-left,
+.link-cta .arr-right {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+/* Por defecto: flecha derecha visible */
+.link-cta .arr-left {
+  transform: translateX(-6px);
+  opacity: 0;
+}
+
+.link-cta .arr-right {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Hover: la flecha "viaja" al inicio */
+.link-cta:hover .arr-left,
+.link-cta:focus-visible .arr-left {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.link-cta:hover .arr-right,
+.link-cta:focus-visible .arr-right {
+  transform: translateX(6px);
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* Altura explícita del SVG del título */
+.title-svg {
+  display: block;
+  width: 100%;
+  height: clamp(100px, 18vw, 240px); /* ⬅️ fuerza altura visible SIEMPRE */
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Tipografía + escala del texto dentro del SVG */
+.hero-draw-svg text {
+  font-family: var(--font-cinzel-dec), serif;
+  font-weight: 400;                /* menos “bold” */
+  font-size: clamp(64px, 12vw, 190px);
+  letter-spacing: 0.01em;
+}
+
+/* Animación: trazo + relleno (con ligerísimo contraste) */
+.hero-stroke {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 1.2;               /* más fino */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+  animation: heroDraw 2.6s ease-in-out forwards;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.25));  /* ⬅️ ayuda en fondos claros */
+}
+.hero-fill {
+  fill: #fff;
+  opacity: 0;
+  animation: heroFill 1s ease-out 2.5s forwards;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+}
+
+@keyframes heroDraw { to { stroke-dashoffset: 0; } }
+@keyframes heroFill  { to { opacity: 1; } }
+
+
+
+/* === CTA base (ya lo usas en el hero) === */
+.link-cta{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding-bottom: 2px;
+  text-decoration: none;
+  transition: color .25s ease;
+}
+
+.link-cta::after{
+  content:"";
+  position:absolute;
+  left:0; bottom:-2px;
+  height:1.5px; width:0;
+  background: currentColor;
+  transition: width .3s ease;
+}
+
+.link-cta:hover::after,
+.link-cta:focus-visible::after{
+  width:100%;
+}
+
+.link-cta .arr-left{
+  opacity:0; transform: translateX(-6px);
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.link-cta .arr-right{
+  opacity:1; transform: translateX(0);
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.link-cta:hover .arr-left,
+.link-cta:focus-visible .arr-left{
+  opacity:1; transform: translateX(0);
+}
+
+.link-cta:hover .arr-right,
+.link-cta:focus-visible .arr-right{
+  opacity:0; transform: translateX(6px);
+}
+
+/* === Tema Burgundy (#9E3D34) para el CTA del “Ver menú completo” === */
+.link-cta--brand{
+  color:#9E3D34;
+}
+
+
+.link-cta--brand {
+  --brand: #9E3D34;
+  color: var(--brand);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.link-cta--brand:hover {
+  color: #7e2d27;
+  transform: translateX(2px);
+}
+
+.link-cta--brand .arr-right,
+.link-cta--brand .arr-left {
+  stroke: var(--brand);
+  transition: stroke 0.25s ease;
 }
