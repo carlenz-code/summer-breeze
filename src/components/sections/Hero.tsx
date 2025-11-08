@@ -54,35 +54,41 @@ export default function Hero() {
       <motion.div
         initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
         animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-        transition={{ duration: 1.1, ease: EASE }}
+        transition={{ duration: 1.2, ease: EASE }}
         className="absolute inset-0"
       >
-        {/* === Fondo === */}
+        {/* === Fondo con zoom suave === */}
         <motion.div
-          initial={{ opacity: 0, scale: 1.05 }}
+          initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: EASE }}
+          transition={{ duration: 1.6, ease: EASE }}
           className="absolute inset-0"
         >
           <motion.img
             src="/ceviche1.png"
             alt="Ceviche fresco con maíz y camote"
             className="w-full h-full object-cover object-center"
-            initial={{ scale: 1.05 }}
+            initial={{ scale: 1.08 }}
             animate={{ scale: 1 }}
             transition={{
-              duration: 6,
+              duration: 8,
               ease: "easeOut",
             }}
           />
-          <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(211,81,0,0.70)_0%,rgba(83,44,26,0.50)_50%,rgba(217,217,217,0)_100%)]" />
+          {/* Gradiente con fade */}
+          <motion.div
+            className="absolute inset-0 bg-[linear-gradient(to_top,rgba(211,81,0,0.75)_0%,rgba(83,44,26,0.50)_50%,rgba(217,217,217,0)_100%)]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.4 }}
+          />
         </motion.div>
 
         {/* === Selector de idioma === */}
         <motion.button
           initial={{ x: 40, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.7, ease: EASE, delay: 0.6 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.8 }}
           onClick={() => setLang((p) => (p === "es" ? "en" : "es"))}
           aria-label="Cambiar idioma"
           className={[
@@ -111,33 +117,51 @@ export default function Hero() {
                 show: {
                   transition: {
                     staggerChildren: 0.15,
-                    delayChildren: 0.5,
+                    delayChildren: 0.6,
                   },
                 },
               }}
               className="hidden md:block"
             >
-              {/* Título */}
-              <motion.h1
-                variants={{
-                  hidden: { y: 30, opacity: 0 },
-                  show: { y: 0, opacity: 1, transition: { duration: 0.9, ease: EASE } },
-                }}
-                className="font-cinzel-dec text-white text-center leading-[1.1] mb-6 whitespace-nowrap"
-                style={{
-                  fontSize: "clamp(72px, 12vw, 190px)",
-                  letterSpacing: "0.02em",
-                  fontWeight: 400,
-                }}
-              >
-                CEVICHE&nbsp;BAR
-              </motion.h1>
+              {/* Título grande */}
+             {/* Título grande */}
+<motion.h1
+  variants={{
+    hidden: { y: 60, opacity: 0, scale: 1.04 },
+    show: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 1.1, ease: EASE },
+    },
+  }}
+  className="
+    font-cinzel-dec text-white leading-[1.1] mb-6
+    drop-shadow-[0_3px_10px_rgba(0,0,0,0.4)]
+    text-left mx-auto 
+    w-full 
+    max-w-[1366px] 
+    
+    whitespace-pre-line
+  "
+  style={{
+    fontSize: "clamp(68px, 11vw, 170px)",
+    letterSpacing: "0.015em",
+    fontWeight: 400,
+    lineHeight: "1.05",
+  }}
+>
+  CEVICHE&nbsp;BAR
+</motion.h1>
+
+
+
 
               {/* Texto + botón */}
               <motion.div
                 variants={{
-                  hidden: { y: 20, opacity: 0 },
-                  show: { y: 0, opacity: 1, transition: { duration: 0.8, ease: EASE } },
+                  hidden: { y: 25, opacity: 0 },
+                  show: { y: 0, opacity: 1, transition: { duration: 0.9, ease: EASE } },
                 }}
                 className="flex items-center justify-between gap-8 text-white/90 font-cormorant font-medium"
               >
@@ -159,13 +183,14 @@ export default function Hero() {
                   <ArrowUpRightIcon className="arr-right w-4 h-4" />
                 </motion.a>
               </motion.div>
+
             </motion.div>
 
             {/* === Mobile === */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, ease: EASE, delay: 0.3 }}
+              transition={{ duration: 1.1, ease: EASE, delay: 0.5 }}
               className="flex flex-col items-center text-center text-white md:hidden pb-[90px]"
             >
               <div className="w-[100px] h-[100px] rounded-full bg-white flex items-center justify-center shadow-xl mb-4 -mt-12" />

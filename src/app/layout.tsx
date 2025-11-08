@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
 import { Cinzel, Cinzel_Decorative, Cormorant } from "next/font/google";
 
 const cinzel = Cinzel({
@@ -40,10 +41,13 @@ export default function RootLayout({
       className={`${cinzel.variable} ${cinzelDec.variable} ${cormorant.variable}`}
     >
       <body className="font-cormorant antialiased text-neutral-900 bg-white min-h-screen overflow-x-hidden">
+        {/* Scroll suave global */}
+        <SmoothScrollProvider />
+
         {/* Fondo blanco global */}
         <div className="fixed inset-0 -z-10 bg-white" aria-hidden="true" />
 
-        {/* Navbar global */}
+        {/* Navbar */}
         <Navbar />
 
         {/* Contenido */}

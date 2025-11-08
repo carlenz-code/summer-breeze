@@ -101,10 +101,10 @@ export default function BestSeller() {
           <div className="grid grid-rows-2 h-full">
             <div className="p-10 flex items-start">
               <div>
-                <h2 className="font-cinzel-dec text-[36px] leading-tight mb-4">
+                <h2 className="font-cinzel text-[36px] leading-tight mb-4 font-semibold">
                   LOS <br /> IMPERDIBLES
                 </h2>
-                <p className="font-cormorant font-semibold text-[19px] leading-relaxed max-w-[28ch]">
+                <p className="font-cormorant font-semibold text-[24px] leading-relaxed max-w-[28ch]">
                   Nuestros ceviches y platos más populares.
                 </p>
               </div>
@@ -113,7 +113,7 @@ export default function BestSeller() {
             <div className="border-t-[2px] border-[#9E3D34]/60 p-10 flex items-center">
               <a
                 href="/menu"
-                className="inline-flex items-center gap-2 font-cormorant font-bold text-[20px] link-cta link-cta--brand"
+                className="inline-flex items-center gap-2 font-cormorant font-bold text-[24px] link-cta link-cta--brand"
               >
                 <ArrowUpRightIcon className="arr-left w-4 h-4" />
                 <span>Ver menú Completo</span>
@@ -124,9 +124,9 @@ export default function BestSeller() {
         </div>
 
         {/* === Tarjetas === */}
-        <div className="relative md:col-span-3">
+        <div className="relative md:col-span-3 md:h-screen flex">
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-0 relative z-20"
+            className="grid grid-cols-1 md:grid-cols-3 gap-0 relative z-20 w-full transition-all duration-500 ease-[0.33,1,0.68,1]"
             variants={cardsParent}
             initial="hidden"
             whileInView="show"
@@ -143,7 +143,8 @@ export default function BestSeller() {
                 className={`
                   group relative overflow-hidden bg-black
                   flex items-center justify-center
-                  ${"h-auto aspect-square md:aspect-auto md:min-h-[580px]"}
+                  h-[50vh] md:h-full
+                  transition-all duration-500 ease-[0.33,1,0.68,1]
                 `}
               >
                 {/* Imagen */}
@@ -167,9 +168,9 @@ export default function BestSeller() {
                 <motion.div
                   className={`
                     absolute z-20 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,.4)]
-                    ${"text-center md:text-left"}
-                    ${"flex flex-col items-center justify-center md:items-start md:justify-end"}
-                    ${"p-4 md:p-8 w-full h-full"}
+                    text-center md:text-left
+                    flex flex-col items-center justify-center md:items-start md:justify-end
+                    p-4 md:p-8 w-full h-full
                   `}
                   variants={titleMotion as any}
                 >

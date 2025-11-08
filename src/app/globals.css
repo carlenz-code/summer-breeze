@@ -294,3 +294,7 @@ a {
   stroke: var(--brand);
   transition: stroke 0.25s ease;
 }
+
+html {
+  scroll-behavior: smooth;
+}
