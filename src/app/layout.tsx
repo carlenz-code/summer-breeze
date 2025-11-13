@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
 import { Cinzel, Cinzel_Decorative, Cormorant } from "next/font/google";
+import SplashScreen from "@/components/layout/SplashScreen";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
         {/* Fondo blanco global */}
         <div className="fixed inset-0 -z-10 bg-white" aria-hidden="true" />
 
+        <SplashScreen />
         {/* Navbar */}
         <Navbar />
 

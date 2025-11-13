@@ -62,7 +62,7 @@ export default function ContactoPage() {
 
           <div>
             <h3 className="text-[#1DB9A0] font-semibold">Teléfono</h3>
-            <p>+506 6041 0538</p>
+            <p>+506 6103 1183</p>
           </div>
 
           <div>

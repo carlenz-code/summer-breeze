@@ -2,6 +2,7 @@
 
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
+import { Facebook, Instagram, Whatsapp } from "iconsax-react";
 import * as React from "react";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -17,6 +18,7 @@ function FlagCR() {
     </svg>
   );
 }
+
 function FlagUS() {
   return (
     <svg width="24" height="16" viewBox="0 0 7410 3900" aria-hidden="true">
@@ -75,9 +77,10 @@ export default function Hero() {
               ease: "easeOut",
             }}
           />
-          {/* Gradiente con fade */}
+
+          {/* ⭐ Gradiente con verde DERECHA — UNA SOLA LÍNEA (Tailwind friendly) ⭐ */}
           <motion.div
-            className="absolute inset-0 bg-[linear-gradient(to_top,rgba(211,81,0,0.75)_0%,rgba(83,44,26,0.50)_50%,rgba(217,217,217,0)_100%)]"
+            className="absolute inset-0 bg-[linear-gradient(to_left,rgba(169,214,43,0.65)_0%,rgba(169,214,43,0.40)_15%,rgba(83,44,26,0.50)_40%,rgba(211,81,0,0.75)_100%)]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.4 }}
@@ -92,10 +95,12 @@ export default function Hero() {
           onClick={() => setLang((p) => (p === "es" ? "en" : "es"))}
           aria-label="Cambiar idioma"
           className={[
-            "absolute z-[3] flex items-center gap-4 ",
+            "absolute z-[3] flex items-center gap-4",
             "bg-white/95 hover:bg-white transition shadow-xl backdrop-blur-md",
             "h-[64px] min-w-[120px] px-6 text-[24px] font-cinzel text-slate-800",
+            // mobile: centrado abajo (como lo tenías)
             "left-1/2 -translate-x-1/2 bottom-[calc(env(safe-area-inset-bottom,0px)+16px)]",
+            // desktop: lateral derecho
             "md:bottom-auto md:left-auto md:translate-x-0 md:right-0 md:top-[42%] md:-translate-y-1/2",
           ].join(" ")}
         >
@@ -108,7 +113,66 @@ export default function Hero() {
         {/* === Contenido principal === */}
         <div className="relative z-[2] flex h-full flex-col justify-end pb-10 md:pb-12">
           <div className="mx-auto max-w-[1366px] px-4 md:px-[100px] w-full">
-            {/* === Desktop === */}
+            {/* ================= MOBILE + TABLET (centrado) ================= */}
+            <div 
+  className="
+    block md:hidden 
+    text-white text-center 
+    drop-shadow-[0_3px_10px_rgba(0,0,0,0.4)]
+    
+    flex flex-col items-center 
+    pt-[40vh]                 /* sube/baja segun pantalla */
+    pb-[8vh]                 /* mantiene balance abajo */
+    min-h-[100dvh]           /* ocupa todo el alto real */
+  "
+>
+
+              {/* Redes centradas */}
+              <div className="flex justify-center gap-5 mb-8">
+                {[
+                  { icon: Facebook, href: "https://facebook.com" },
+                  { icon: Instagram, href: "https://instagram.com" },
+                  { icon: Whatsapp, href: "https://wa.me/50661031183" },
+                ].map(({ icon: Icono, href }, i) => (
+                  <motion.a
+                    key={i}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.15 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-10 h-10 rounded-full bg-white/95 flex items-center justify-center shadow-lg transition-all duration-300"
+                  >
+                    <Icono size={22} variant="Linear" color="#9E3D34" />
+                  </motion.a>
+                ))}
+              </div>
+
+              {/* Título centrado */}
+              <h1 className="font-cinzel-dec text-[44px] leading-[1.1] mb-3">
+                CEVICHERIA
+              </h1>
+
+              {/* CTA solo texto */}
+              <motion.a
+                href="/reservas"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.3 }}
+                className="inline-flex items-center gap-2 text-white font-cormorant text-[22px] mb-4"
+              >
+                <ArrowUpRightIcon className="w-4 h-4" />
+                <span>Reserva una mesa</span>
+              </motion.a>
+
+              {/* Texto descriptivo centrado */}
+              <p className="font-cormorant text-[17px] leading-relaxed max-w-[90%] mx-auto">
+                Disfruta el sabor auténtico de Costa Rica: la pesca más fresca del
+                Pacífico en un ambiente vibrante y lleno de tradición.
+              </p>
+            </div>
+
+            {/* ================= DESKTOP (tu bloque original) ================= */}
             <motion.div
               initial="hidden"
               animate="show"
@@ -123,45 +187,75 @@ export default function Hero() {
               }}
               className="hidden md:block"
             >
-              {/* Título grande */}
-             {/* Título grande */}
-<motion.h1
-  variants={{
-    hidden: { y: 60, opacity: 0, scale: 1.04 },
-    show: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 1.1, ease: EASE },
-    },
-  }}
-  className="
-    font-cinzel-dec text-white leading-[1.1] mb-6
-    drop-shadow-[0_3px_10px_rgba(0,0,0,0.4)]
-    text-left mx-auto 
-    w-full 
-    max-w-[1366px] 
-    
-    whitespace-pre-line
-  "
-  style={{
-    fontSize: "clamp(68px, 11vw, 170px)",
-    letterSpacing: "0.015em",
-    fontWeight: 400,
-    lineHeight: "1.05",
-  }}
->
-  CEVICHE&nbsp;BAR
-</motion.h1>
+              {/* ⭐ Redes arriba del título — A LA IZQUIERDA ⭐ */}
+              <motion.div
+                variants={{
+                  hidden: { y: 40, opacity: 0 },
+                  show: {
+                    y: 0,
+                    opacity: 1,
+                    transition: { duration: 1, ease: EASE, delay: 0.4 },
+                  },
+                }}
+                className="flex justify-start gap-4 mb-8"
+              >
+                {[
+                  { icon: Facebook, href: "https://facebook.com" },
+                  { icon: Instagram, href: "https://instagram.com" },
+                  { icon: Whatsapp, href: "https://wa.me/50661031183" },
+                ].map(({ icon: Icono, href }, i) => (
+                  <motion.a
+                    key={i}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.15 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-10 h-10 rounded-full bg-white/95 flex items-center justify-center 
+                 shadow-lg transition-all duration-300"
+                  >
+                    <Icono
+                      size={22}
+                      variant="Linear"
+                      color="#9E3D34" // ← se ve sí o sí
+                      className="group-hover:text-white"
+                    />
+                  </motion.a>
+                ))}
+              </motion.div>
 
+              {/* TÍTULO (exactamente como lo tenías) */}
+              <motion.h1
+                variants={{
+                  hidden: { y: 60, opacity: 0, scale: 1.04 },
+                  show: {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    transition: { duration: 1.1, ease: EASE },
+                  },
+                }}
+                className="font-cinzel-dec text-white leading-[1.1] mb-6 
+                           drop-shadow-[0_3px_10px_rgba(0,0,0,0.4)] text-left"
+                style={{
+                  fontSize: "clamp(68px, 11vw, 10px)",
+                  letterSpacing: "0.015em",
+                  fontWeight: 400,
+                  lineHeight: "1.05",
+                }}
+              >
+                CEVICHERIA
+              </motion.h1>
 
-
-
-              {/* Texto + botón */}
+              {/* Texto + botón (tu bloque original, sin tocar estructura) */}
               <motion.div
                 variants={{
                   hidden: { y: 25, opacity: 0 },
-                  show: { y: 0, opacity: 1, transition: { duration: 0.9, ease: EASE } },
+                  show: {
+                    y: 0,
+                    opacity: 1,
+                    transition: { duration: 0.9, ease: EASE },
+                  },
                 }}
                 className="flex items-center justify-between gap-8 text-white/90 font-cormorant font-medium"
               >
@@ -183,38 +277,6 @@ export default function Hero() {
                   <ArrowUpRightIcon className="arr-right w-4 h-4" />
                 </motion.a>
               </motion.div>
-
-            </motion.div>
-
-            {/* === Mobile === */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, ease: EASE, delay: 0.5 }}
-              className="flex flex-col items-center text-center text-white md:hidden pb-[90px]"
-            >
-              <div className="w-[100px] h-[100px] rounded-full bg-white flex items-center justify-center shadow-xl mb-4 -mt-12" />
-
-              <h1 className="font-cinzel-dec text-white leading-[1.1] mb-3 text-[52px] font-[400]">
-                CEVICHE<br />BAR
-              </h1>
-
-              <motion.a
-                href="/reservas"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.3 }}
-                className="link-cta font-cormorant font-medium text-[20px] mb-6"
-              >
-                <ArrowUpRightIcon className="arr-left w-4 h-4" />
-                <span>Reserva una mesa</span>
-                <ArrowUpRightIcon className="arr-right w-4 h-4" />
-              </motion.a>
-
-              <p className="font-cormorant font-medium text-[17px] leading-relaxed max-w-[300px] text-white/90">
-                Disfruta el sabor auténtico de Costa Rica: la pesca más fresca del Pacífico en un
-                ambiente vibrante y lleno de tradición.
-              </p>
             </motion.div>
           </div>
         </div>

@@ -46,7 +46,7 @@ export default function SeccionUbicacion() {
             TELÉFONO
           </h3>
           <p className="font-cormorant text-[17px] leading-relaxed">
-            +506 6041 0538
+            +506 6103 1183
           </p>
         </div>
 
@@ -97,9 +97,10 @@ export default function SeccionUbicacion() {
       </motion.div>
 
       {/* === Mapa === */}
+      {/* === Mapa actualizado === */}
       <div className="relative w-full h-[400px] md:h-[520px]">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.8079616203538!2d-84.64557985101718!3d10.472899070797423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0db1b0e65a129%3A0xd88ec8c74f23fbe!2sLa%20Fortuna%2C%20Alajuela%2C%20Costa%20Rica!5e0!3m2!1ses!2spe!4v1731032253427!5m2!1ses!2spe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.889830266271!2d-84.3139763!3d10.0742483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0a54dddf3e915%3A0xf8b64a2962d2d2f3!2s3MFQ%2BMCX%20Grecia%2C%20Provincia%20de%20Alajuela%2C%20Costa%20Rica!5e0!3m2!1ses!2scr!4v1731435624100!5m2!1ses!2scr"
           className="absolute inset-0 w-full h-full border-0"
           allowFullScreen
           loading="lazy"
@@ -109,6 +110,7 @@ export default function SeccionUbicacion() {
         {/* Overlay decorativo */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#FBF6F2]/40 via-transparent to-transparent pointer-events-none" />
       </div>
+
     </section>
   );
 }
