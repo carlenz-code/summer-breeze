@@ -1,6 +1,7 @@
 "use client";
+
 import Link from "next/link";
-import { Bars3CenterLeftIcon } from "@heroicons/react/24/outline";
+import { Bars3CenterLeftIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -9,12 +10,13 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 export default function Navbar() {
   const [scale, setScale] = React.useState(1);
   const [scrolled, setScrolled] = React.useState(false);
+  const [menuOpen, setMenuOpen] = React.useState(false);
 
   /* --- FIX REAL SCALE FOR DESKTOP (>= 1280 = xl) --- */
   React.useEffect(() => {
     const update = () => {
       const vv = (window as any).visualViewport;
-      const desktop = window.innerWidth >= 1280; // antes 1024
+      const desktop = window.innerWidth >= 1280;
       const z = vv?.scale ?? 1;
       setScale(desktop ? 1 / z : 1);
     };
@@ -44,14 +46,13 @@ export default function Navbar() {
     hover:after:w-full
   `;
 
-  // Logo grande flotante (círculo naranja) EN DESKTOP
+  // Logo grande flotante (círculo naranja)
   const bigLogoVariants = {
     initial: {
       y: 0,
       scale: 1,
       opacity: 1,
-      backgroundColor: "rgba(253, 186, 116, 0.40)", // naranja 🧡
-      boxShadow: "0 0 0 rgba(0,0,0,0)",            // ✅ SIN sombra negra
+      backgroundColor: "rgba(253, 186, 116, 0.40)",
       borderRadius: 999,
     },
     scrolled: {
@@ -59,51 +60,32 @@ export default function Navbar() {
       scale: 0.8,
       opacity: 0,
       backgroundColor: "rgba(253, 186, 116, 0.0)",
-      boxShadow: "0 0 0 rgba(0,0,0,0)",            // ✅ SIN sombra también al hacer scroll
-      transition: {
-        duration: 0.7,
-        ease: EASE,
-      },
+      transition: { duration: 0.7, ease: EASE },
     },
-  } as const;
+  };
 
-  // Logo pequeño DENTRO del navbar blanco (solo imagen NEGRA)
+  // Logo pequeño dentro del navbar
   const smallLogoVariants = {
-    hidden: {
-      opacity: 0,
-      y: -8,
-      scale: 0.7,
-      pointerEvents: "none",
-    },
+    hidden: { opacity: 0, y: -8, scale: 0.7, pointerEvents: "none" },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       pointerEvents: "auto",
-      transition: {
-        duration: 0.6,
-        ease: EASE,
-      },
+      transition: { duration: 0.6, ease: EASE },
     },
-  } as const;
+  };
 
-  // Variantes para el logo en MOBILE/TABLET (círculo naranja centrado)
+  // Logo mobile centrado
   const mobileLogoVariants = {
-    initial: {
-      y: 0,
-      scale: 1,
-      opacity: 1,
-    },
+    initial: { y: 0, scale: 1, opacity: 1 },
     scrolled: {
       y: -20,
       scale: 0.8,
       opacity: 0,
-      transition: {
-        duration: 0.6,
-        ease: EASE,
-      },
+      transition: { duration: 0.6, ease: EASE },
     },
-  } as const;
+  };
 
   return (
     <motion.header
@@ -126,8 +108,9 @@ export default function Navbar() {
       </AnimatePresence>
 
       <div className="w-full relative">
+
         {/* ======================================================
-            DESKTOP (>=1280px, xl)
+            DESKTOP (>=1280px)
         ====================================================== */}
         <div className="hidden xl:block">
           <div
@@ -135,27 +118,29 @@ export default function Navbar() {
             style={{ transform: `scale(${scale})`, transformOrigin: "top center" }}
           >
             <div className="relative h-full flex items-center justify-between gap-8">
+
               {/* Nav izquierda */}
               <nav className={`flex items-center gap-10 text-[14px] ${textColor}`}>
-                <Link href="#menu" className={`${navLink} ${lineColor}`}>
-                  MENÚ
+                <Link href="/" className={`${navLink} ${lineColor}`}>
+                  INICIO
                 </Link>
+
                 <Link href="/historia" className={`${navLink} ${lineColor}`}>
                   NUESTRA HISTORIA
                 </Link>
-                <Link href="/reservas" className={`${navLink} ${lineColor}`}>
-                  RESERVAS
+
+                <Link href="#menu" className={`${navLink} ${lineColor}`}>
+                  MENÚ
                 </Link>
               </nav>
 
-              {/* Logo pequeño CENTRADO dentro del navbar blanco */}
+              {/* Logo pequeño cuando hay scroll */}
               <motion.div
                 initial="hidden"
                 animate={scrolled ? "visible" : "hidden"}
                 variants={smallLogoVariants}
                 className="flex items-center justify-center flex-shrink-0"
               >
-                {/* ✅ Nuevo logo negro, más grande, sin estilos raros */}
                 <img
                   src="/logo/summerbreeze_negro.png"
                   className="h-14 w-auto object-contain mb-3"
@@ -168,15 +153,17 @@ export default function Navbar() {
                 <Link href="/contacto" className={`${navLink} ${lineColor}`}>
                   TESTIMONIOS
                 </Link>
+
                 <Link href="/contacto" className={`${navLink} ${lineColor}`}>
                   CONTACTO
                 </Link>
+
                 <Link href="#ubicacion" className={`${navLink} ${lineColor}`}>
                   UBICACIÓN
                 </Link>
               </nav>
 
-              {/* Logo grande flotante con círculo naranja (por detrás) */}
+              {/* Logo gigante flotante */}
               <motion.div
                 initial={false}
                 animate={scrolled ? "scrolled" : "initial"}
@@ -191,22 +178,25 @@ export default function Navbar() {
                   alt="Logo Summer Breeze"
                 />
               </motion.div>
-              
+
             </div>
           </div>
         </div>
 
         {/* ======================================================
-            MOBILE + TABLET + SMALL LAPTOPS (<=1279px)
+            MOBILE + TABLET (<= 1279px)
         ====================================================== */}
         <div className="xl:hidden relative">
-          {/* Barra superior */}
           <div
             className={`h-14 flex items-center justify-between px-5 transition-colors duration-500 ${
               scrolled ? "bg-white/95 text-[#171717]" : "text-white"
             }`}
           >
-            <button aria-label="Menu" className="p-2 hover:opacity-80">
+            <button
+              aria-label="Menu"
+              className="p-2 hover:opacity-80"
+              onClick={() => setMenuOpen(true)}
+            >
               <Bars3CenterLeftIcon className="w-7 h-7" />
             </button>
 
@@ -215,7 +205,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* LOGO CENTRADO (Mobile + Tablet) con círculo naranja */}
+          {/* Logo centrado */}
           <motion.div
             initial={false}
             animate={scrolled ? "scrolled" : "initial"}
@@ -236,7 +226,66 @@ export default function Navbar() {
             />
           </motion.div>
         </div>
+
       </div>
+
+      {/* ======================================================
+          MODAL MOBILE MENU
+      ====================================================== */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: EASE }}
+            className="fixed inset-0 bg-black/60 backdrop-blur-md z-[60] flex flex-col"
+            onClick={() => setMenuOpen(false)}
+          >
+            {/* Panel lateral */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ duration: 0.45, ease: EASE }}
+              className="w-[80%] max-w-[320px] h-full bg-white text-[#1a1a1a] shadow-2xl p-8 flex flex-col gap-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-cinzel text-[22px] font-bold">Menú</h3>
+                <button onClick={() => setMenuOpen(false)}>
+                  <XMarkIcon className="w-7 h-7" />
+                </button>
+              </div>
+
+              <Link href="/" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
+                INICIO
+              </Link>
+
+              <Link href="/historia" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
+                NUESTRA HISTORIA
+              </Link>
+
+              <Link href="#menu" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
+                MENÚ
+              </Link>
+
+              <Link href="/contacto" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
+                TESTIMONIOS
+              </Link>
+
+              <Link href="/contacto" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
+                CONTACTO
+              </Link>
+
+              <Link href="#ubicacion" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
+                UBICACIÓN
+              </Link>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </motion.header>
   );
 }

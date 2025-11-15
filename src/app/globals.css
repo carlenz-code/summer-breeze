@@ -118,71 +118,76 @@ a {
   }
 }
 
-/* =========================================================
-   ⚡ CTA "Reserva una mesa" animado (subrayado + flecha)
-========================================================= */
+/* ===============================
+   CTA BASE (sin color)
+================================= */
 .link-cta {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding-block: 2px;
-  color: #fff;
-  transition: color 0.25s ease;
+  display: inline-block;
+  padding-bottom: 4px;
+  text-align: center;
 }
 
-/* Subrayado animado */
+/* Subrayado */
 .link-cta::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -2px;
   height: 1.5px;
-  width: 0;
-  background-color: currentColor;
-  transition: width 0.35s ease;
-}
-
-.link-cta:hover::after,
-.link-cta:focus-visible::after {
   width: 100%;
+  background-color: currentColor;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.35s ease;
 }
 
-/* Flechas animadas */
-.link-cta .arr-left,
-.link-cta .arr-right {
-  transition: transform 0.35s ease, opacity 0.35s ease;
+/* ===============================
+   WRAPPER QUE SE DESPLAZA SUAVEMENTE
+================================= */
+.cta-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: transform 0.35s ease;
 }
 
-/* Por defecto: flecha derecha visible */
-.link-cta .arr-left {
-  transform: translateX(-6px);
+/* ===============================
+   FLECHAS
+================================= */
+.arr-left,
+.arr-right {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Flecha izquierda invisible por defecto */
+.arr-left {
   opacity: 0;
+  transform: translateX(-8px);
 }
 
-.link-cta .arr-right {
-  transform: translateX(0);
+/* Flecha derecha visible */
+.arr-right {
   opacity: 1;
+  transform: translateX(0px);
 }
 
-/* Hover: la flecha "viaja" al inicio */
-.link-cta:hover .arr-left,
-.link-cta:focus-visible .arr-left {
-  transform: translateX(0);
+/* ===============================
+   HOVER ANIMATION
+================================= */
+.link-cta:hover .cta-inner {
+  transform: translateX(10px); /* empuje suave */
+}
+
+.link-cta:hover .arr-left {
   opacity: 1;
+  transform: translateX(0);
 }
 
-.link-cta:hover .arr-right,
-.link-cta:focus-visible .arr-right {
-  transform: translateX(6px);
+.link-cta:hover .arr-right {
   opacity: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
+  transform: translateX(8px);
 }
 
 
@@ -300,95 +305,4 @@ html {
 }
 
 
-/*PARALLAX*/
 
-/*PARALLAX*/
-.parallax-container {
-  height: 300vh;
-  position: relative;
-}
-
-.parallax-sticky {
-  position: sticky;
-  overflow: hidden;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Cada capa de imagen */
-.parallax-el {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* el div donde va la imagen */
-.parallax-image {
-  position: relative;
-  width: 25vw;
-  height: 25vh;
-  border-radius: 24px;
-  overflow: hidden;
-}
-
-.parallax-image img {
-  object-fit: cover;
-}
-
-/* La imagen central (la 1) estará siempre por encima */
-.parallax-el:nth-of-type(1) {
-  z-index: 10;
-}
-
-/* 2 ─ arriba un poco a la izquierda */
-.parallax-el:nth-of-type(2) .parallax-image {
-  top: -30vh;
-  left: 5vw;
-  width: 35vw;
-  height: 30vh;
-}
-
-/* 3 ─ izquierda media, alta y vertical */
-.parallax-el:nth-of-type(3) .parallax-image {
-  top: -10vh;
-  left: -25vw;
-  width: 20vw;
-  height: 45vh;
-}
-
-/* 4 ─ derecha media */
-.parallax-el:nth-of-type(4) .parallax-image {
-  left: 27.5vw;
-  width: 25vw;
-  height: 25vh;
-}
-
-/* 5 ─ abajo izquierda */
-.parallax-el:nth-of-type(5) .parallax-image {
-  top: 27.5vh;
-  left: 5vw;
-  width: 20vw;
-  height: 25vh;
-}
-
-/* 6 y 7 solo por si luego agregas más imágenes (no afectan si no existen) */
-.parallax-el:nth-of-type(6) .parallax-image {
-  top: 27.5vh;
-  left: -22.5vw;
-  width: 30vw;
-  height: 25vh;
-}
-
-.parallax-el:nth-of-type(7) .parallax-image {
-  top: 22.5vh;
-  left: 25vw;
-  width: 15vw;
-  height: 15vh;
-}

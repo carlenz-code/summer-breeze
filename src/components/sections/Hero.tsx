@@ -114,8 +114,8 @@ export default function Hero() {
         <div className="relative z-[2] flex h-full flex-col justify-end pb-10 md:pb-12">
           <div className="mx-auto max-w-[1366px] px-4 md:px-[100px] w-full">
             {/* ================= MOBILE + TABLET (centrado) ================= */}
-            <div 
-  className="
+            <div
+              className="
     block md:hidden 
     text-white text-center 
     drop-shadow-[0_3px_10px_rgba(0,0,0,0.4)]
@@ -125,7 +125,7 @@ export default function Hero() {
     pb-[8vh]                 /* mantiene balance abajo */
     min-h-[100dvh]           /* ocupa todo el alto real */
   "
->
+            >
 
               {/* Redes centradas */}
               <div className="flex justify-center gap-5 mb-8">
@@ -153,17 +153,18 @@ export default function Hero() {
                 CEVICHERIA
               </h1>
 
-              {/* CTA solo texto */}
               <motion.a
                 href="/reservas"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.3 }}
-                className="inline-flex items-center gap-2 text-white font-cormorant text-[22px] mb-4"
+                className="inline-flex items-center gap-2 font-cormorant text-[22px] mb-4"
+                style={{ color: "#FFFFFF" }}
               >
                 <ArrowUpRightIcon className="w-4 h-4" />
                 <span>Reserva una mesa</span>
               </motion.a>
+
 
               {/* Texto descriptivo centrado */}
               <p className="font-cormorant text-[17px] leading-relaxed max-w-[90%] mx-auto">
