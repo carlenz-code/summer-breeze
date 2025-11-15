@@ -10,7 +10,7 @@ export default function HistoriaIntro() {
       {/* 1️⃣ IMAGEN BASE */}
       <div className="absolute inset-0">
         <img
-          src="/history/historia1.png"
+          src="g3.jpg"
           alt="Costa Pacífica"
           className="w-full h-full object-cover object-center md:object-bottom"
         />

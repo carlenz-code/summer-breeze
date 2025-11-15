@@ -8,7 +8,9 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 export default function SeccionUbicacion() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#FBF6F2] text-[#8B2F24] border-t border-[#9E3D34]/10">
+    <section 
+    id="ubicacion"
+    className="relative w-full overflow-hidden bg-[#FBF6F2] text-[#8B2F24] border-t border-[#9E3D34]/10">
       {/* === Hoja decorativa izquierda === */}
       <div className="absolute -left-[80px] bottom-0 w-[280px] md:w-[340px] opacity-80 pointer-events-none">
         <Image

@@ -31,29 +31,27 @@ export const metadata: Metadata = {
   description: "Ceviche Bar: cocina de estación y coctelería frente al mar.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="es"
       className={`${cinzel.variable} ${cinzelDec.variable} ${cormorant.variable}`}
     >
       <body className="font-cormorant antialiased text-neutral-900 bg-white min-h-screen overflow-x-hidden">
-        {/* Scroll suave global */}
+        
         <SmoothScrollProvider />
 
-        {/* Fondo blanco global */}
         <div className="fixed inset-0 -z-10 bg-white" aria-hidden="true" />
 
         <SplashScreen />
-        {/* Navbar */}
+
         <Navbar />
 
-        {/* Contenido */}
-        <main className="relative z-10">{children}</main>
+        {/* ⬅⬅⬅ FIX: main debe crecer y no interferir con Lenis */}
+        <main className="min-h-screen w-full">
+          {children}
+        </main>
+
       </body>
     </html>
   );

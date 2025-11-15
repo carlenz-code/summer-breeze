@@ -130,8 +130,8 @@ export default function Hero() {
               {/* Redes centradas */}
               <div className="flex justify-center gap-5 mb-8">
                 {[
-                  { icon: Facebook, href: "https://facebook.com" },
-                  { icon: Instagram, href: "https://instagram.com" },
+                  { icon: Facebook, href: "https://www.facebook.com/share/1EoM7JnjE1/?mibextid=wwXIfr" },
+                  { icon: Instagram, href: "https://www.instagram.com/summerbreezecr25?igsh=MTZtd3U0bGh1c2V0" },
                   { icon: Whatsapp, href: "https://wa.me/50661031183" },
                 ].map(({ icon: Icono, href }, i) => (
                   <motion.a

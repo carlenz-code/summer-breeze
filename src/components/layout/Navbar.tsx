@@ -150,7 +150,7 @@ export default function Navbar() {
 
               {/* Nav derecha */}
               <nav className={`flex items-center gap-10 text-[14px] ${textColor}`}>
-                <Link href="/contacto" className={`${navLink} ${lineColor}`}>
+                <Link href="#testimonios" className={`${navLink} ${lineColor}`}>
                   TESTIMONIOS
                 </Link>
 
@@ -270,7 +270,7 @@ export default function Navbar() {
                 MENÚ
               </Link>
 
-              <Link href="/contacto" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
+              <Link href="#testimonios" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
                 TESTIMONIOS
               </Link>
 
