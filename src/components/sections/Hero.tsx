@@ -7,45 +7,7 @@ import * as React from "react";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-/* ====== BANDERAS SVG ====== */
-function FlagCR() {
-  return (
-    <svg width="24" height="16" viewBox="0 0 24 16" aria-hidden="true">
-      <rect width="24" height="16" fill="#fff" />
-      <rect y="2.28" width="24" height="11.44" fill="#0038A8" />
-      <rect y="4.56" width="24" height="6.88" fill="#fff" />
-      <rect y="5.84" width="24" height="4.32" fill="#CE1126" />
-    </svg>
-  );
-}
 
-function FlagUS() {
-  return (
-    <svg width="24" height="16" viewBox="0 0 7410 3900" aria-hidden="true">
-      <rect width="7410" height="3900" fill="#b22234" />
-      <path
-        stroke="#fff"
-        strokeWidth="300"
-        d="M0 450h7410M0 1050h7410M0 1650h7410M0 2250h7410M0 2850h7410M0 3450h7410"
-      />
-      <rect width="2964" height="2100" fill="#3c3b6e" />
-      <g fill="#fff">
-        {Array.from({ length: 9 }).flatMap((_, r) =>
-          Array.from({ length: 11 - (r % 2) }).map((_, c) => {
-            const x = c * 540 + (r % 2 ? 270 : 0) + 135;
-            const y = r * 210 + 175;
-            return (
-              <polygon
-                key={`${r}-${c}`}
-                points={`${x},${y - 70} ${x + 20},${y - 20} ${x + 75},${y - 20} ${x + 30},${y + 10} ${x + 50},${y + 60} ${x},${y + 30} ${x - 50},${y + 60} ${x - 30},${y + 10} ${x - 75},${y - 20} ${x - 20},${y - 20}`}
-              />
-            );
-          })
-        )}
-      </g>
-    </svg>
-  );
-}
 
 export default function Hero() {
   const [lang, setLang] = React.useState<"es" | "en">("es");
@@ -87,28 +49,7 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* === Selector de idioma === */}
-        <motion.button
-          initial={{ x: 40, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: EASE, delay: 0.8 }}
-          onClick={() => setLang((p) => (p === "es" ? "en" : "es"))}
-          aria-label="Cambiar idioma"
-          className={[
-            "absolute z-[3] flex items-center gap-4",
-            "bg-white/95 hover:bg-white transition shadow-xl backdrop-blur-md",
-            "h-[64px] min-w-[120px] px-6 text-[24px] font-cinzel text-slate-800",
-            // mobile: centrado abajo (como lo tenías)
-            "left-1/2 -translate-x-1/2 bottom-[calc(env(safe-area-inset-bottom,0px)+16px)]",
-            // desktop: lateral derecho
-            "md:bottom-auto md:left-auto md:translate-x-0 md:right-0 md:top-[42%] md:-translate-y-1/2",
-          ].join(" ")}
-        >
-          <div className="w-[28px] h-[18px]">
-            {lang === "es" ? <FlagCR /> : <FlagUS />}
-          </div>
-          <span className="tracking-wide">{lang.toUpperCase()}</span>
-        </motion.button>
+        
 
         {/* === Contenido principal === */}
         <div className="relative z-[2] flex h-full flex-col justify-end pb-10 md:pb-12">
@@ -131,7 +72,7 @@ export default function Hero() {
               <div className="flex justify-center gap-5 mb-8">
                 {[
                   { icon: Facebook, href: "https://www.facebook.com/share/1EoM7JnjE1/?mibextid=wwXIfr" },
-                  { icon: Instagram, href: "https://www.instagram.com/summerbreezecr25?igsh=MTZtd3U0bGh1c2V0" },
+                  { icon: Instagram, href: "https://www.instagram.com/summer_breezecr?igsh=MTZtd3U0bGh1c2V0" },
                   { icon: Whatsapp, href: "https://wa.me/50661031183" },
                 ].map(({ icon: Icono, href }, i) => (
                   <motion.a
@@ -154,7 +95,7 @@ export default function Hero() {
               </h1>
 
               <motion.a
-                href="/reservas"
+                href="https://wa.me/50661031183"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.3 }}
@@ -201,8 +142,8 @@ export default function Hero() {
                 className="flex justify-start gap-4 mb-8"
               >
                 {[
-                  { icon: Facebook, href: "https://facebook.com" },
-                  { icon: Instagram, href: "https://instagram.com" },
+                  { icon: Facebook, href: "https://www.facebook.com/share/1EoM7JnjE1/?mibextid=wwXIfr" },
+                  { icon: Instagram, href: "https://www.instagram.com/summer_breezecr?igsh=MTZtd3U0bGh1c2V0" },
                   { icon: Whatsapp, href: "https://wa.me/50661031183" },
                 ].map(({ icon: Icono, href }, i) => (
                   <motion.a
@@ -267,7 +208,7 @@ export default function Hero() {
                 </p>
 
                 <motion.a
-                  href="/reservas"
+                  href="https://wa.me/50661031183"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.3 }}

@@ -276,15 +276,15 @@ export default function Testimonios() {
           <div className="flex flex-col items-center gap-4 mt-2">
             <div className="text-[#FBF6F2]">
               <p className="text-[28px] font-bold leading-none">
-                +<AnimatedCounter from={0} to={600} />
+                +<AnimatedCounter from={30} to={30} />
               </p>
               <p className="font-cormorant uppercase text-[14px] leading-tight">
-                Huéspedes Felices
+                Amantes del Ceviche
               </p>
             </div>
             <div className="text-[#FBF6F2]">
               <p className="text-[28px] font-bold leading-none">
-                <AnimatedCounter from={0} to={5} />/5
+                <AnimatedCounter from={5} to={5} />/5
               </p>
               <p className="font-cormorant uppercase text-[14px] leading-tight">
                 Satisfacción Total

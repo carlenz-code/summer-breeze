@@ -52,7 +52,7 @@ export default function Navbar() {
       y: 0,
       scale: 1,
       opacity: 1,
-      backgroundColor: "rgba(253, 186, 116, 0.40)",
+      backgroundColor: "rgba(255, 255, 255, 0.2)",
       borderRadius: 999,
     },
     scrolled: {
@@ -150,7 +150,7 @@ export default function Navbar() {
 
               {/* Nav derecha */}
               <nav className={`flex items-center gap-10 text-[14px] ${textColor}`}>
-                <Link href="#testimonios" className={`${navLink} ${lineColor}`}>
+                <Link href="/#testimonios" className={`${navLink} ${lineColor}`}>
                   TESTIMONIOS
                 </Link>
 
@@ -158,7 +158,7 @@ export default function Navbar() {
                   CONTACTO
                 </Link>
 
-                <Link href="#ubicacion" className={`${navLink} ${lineColor}`}>
+                <Link href="https://maps.app.goo.gl/o23gmP9oJE3BQ1FWA" className={`${navLink} ${lineColor}`}>
                   UBICACIÓN
                 </Link>
               </nav>
@@ -215,7 +215,7 @@ export default function Navbar() {
               top-[3.3rem]
               w-[160px] h-[160px]
               sm:w-[200px] sm:h-[200px]
-              rounded-full bg-orange-300/40
+              rounded-full bg-white/40
               flex items-center justify-center
             "
           >
@@ -270,7 +270,7 @@ export default function Navbar() {
                 MENÚ
               </Link>
 
-              <Link href="#testimonios" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
+              <Link href="/#testimonios" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
                 TESTIMONIOS
               </Link>
 
@@ -278,7 +278,7 @@ export default function Navbar() {
                 CONTACTO
               </Link>
 
-              <Link href="#ubicacion" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
+              <Link href="https://maps.app.goo.gl/o23gmP9oJE3BQ1FWA" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
                 UBICACIÓN
               </Link>
             </motion.div>

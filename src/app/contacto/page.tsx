@@ -55,8 +55,8 @@ export default function ContactoPage() {
           <div>
             <h3 className="text-[#1DB9A0] font-semibold">Localización</h3>
             <p>
-              400 Mtrs Sur Polideportivo<br />
-              La Fortuna, San Carlos, Alajuela
+              375 este de Correos de Costa Rica.<br />
+              2do local contiguo a licorera La Noche Buena
             </p>
           </div>
 
@@ -67,14 +67,14 @@ export default function ContactoPage() {
 
           <div>
             <h3 className="text-[#1DB9A0] font-semibold">Email</h3>
-            <p>info@herbariocer.com</p>
+            <p>admin@summerbreezecr.com</p>
           </div>
 
           <div>
             <h3 className="text-[#1DB9A0] font-semibold">Horario</h3>
             <p>
-              Mon - Sun<br />
-              11.00am - 10.00pm
+              Martes a Domingo<br />
+              12.00pm - 08.00pm
             </p>
           </div>
         </div>

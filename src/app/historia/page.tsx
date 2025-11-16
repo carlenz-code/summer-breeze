@@ -7,6 +7,7 @@ import Lenis from "lenis";
 import HistoriaIntro from "@/components/historia/HistoriaIntro";
 import Historia1 from "@/components/sections/Historia1";
 import Historia2 from "@/components/sections/Historia2";
+import FooterSticky from "@/components/footer/FooterSticky";
 type SectionProps = {
   scrollYProgress: MotionValue<number>;
 };
@@ -76,6 +77,10 @@ const HistoriaSection = ({ scrollYProgress }: SectionProps) => {
     >
       <Historia1 />
       <Historia2/>
+      <FooterSticky />
+      
     </motion.div>
+
+    
   );
 };

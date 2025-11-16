@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
 import { Cinzel, Cinzel_Decorative, Cormorant } from "next/font/google";
 import SplashScreen from "@/components/layout/SplashScreen";
+import FooterSticky from "@/components/footer/FooterSticky";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -46,11 +47,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SplashScreen />
 
         <Navbar />
+        
 
         {/* ⬅⬅⬅ FIX: main debe crecer y no interferir con Lenis */}
         <main className="min-h-screen w-full">
           {children}
         </main>
+
+        
 
       </body>
     </html>

@@ -44,7 +44,7 @@ export default function Historia2() {
         transition={{ duration: 1.1, ease: EASE }}
       >
         <img
-          src="g3.jpg"
+          src="/history/htp.jpg"
           alt="Ceviche fresco servido con patacones"
           className="absolute inset-0 w-full h-full object-cover 
                      object-top md:object-center"

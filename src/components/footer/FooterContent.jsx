@@ -61,7 +61,7 @@ export default function FooterContent() {
           </p>
 
           <p className="font-cormorant text-[17px]">
-            Daily • 11:00am – 10:00pm
+            Horario • 12:00pm – 8:00pm
           </p>
 
           <p className="font-cormorant text-[17px]">
@@ -108,6 +108,10 @@ export default function FooterContent() {
       {/* COPYRIGHT */}
       <div className="w-full text-center text-neutral-500 font-cormorant text-[14px] mt-8">
         © {new Date().getFullYear()} Summer Breeze. Todos los derechos reservados.
+      </div>
+
+      <div className="w-full text-center text-neutral-500 font-cormorant text-[14px] mt-8">
+       Desingned & Developed by MeForth
       </div>
     </footer>
   );
