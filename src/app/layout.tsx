@@ -25,10 +25,10 @@ const cormorant = Cormorant({
 
 export const metadata: Metadata = {
   title: {
-    default: "Summer Breeze – Ceviche Bar",
+    default: "Summer Breeze",
     template: "%s | Summer Breeze",
   },
-  description: "Ceviche Bar: cocina de estación y coctelería frente al mar.",
+
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
