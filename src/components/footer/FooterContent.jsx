@@ -37,12 +37,15 @@ export default function FooterContent() {
           transition={{ duration: 0.6, ease: EASE }}
           className="w-full h-[260px] bg-neutral-100 shadow-md"
         >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.889830266271!2d-84.3139763!3d10.0742483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0a54dddf3e915%3A0xf8b64a2962d2d2f3!2s3MFQ%2BMCX%20Grecia%2C%20Provincia%20de%20Alajuela%2C%20Costa%20Rica!5e0!3m2!1ses!2scr!4v1731435624100!5m2!1ses!2scr"
-            className="w-full h-full border-0"
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
+       <iframe
+  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3978.889830266271!2d-84.3113298!3d10.074263!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0596f433a69c1%3A0x8fa4b234b6daac75!2sSummer%20Breeze%20Cevicher%C3%ADa!5e0!3m2!1ses!2spe!4v1733000000000"
+  className="w-full h-full border-0"
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+></iframe>
+
+
         </motion.div>
 
         {/* INFORMACIÓN */}

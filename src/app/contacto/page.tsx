@@ -55,7 +55,7 @@ export default function ContactoPage() {
           <div>
             <h3 className="text-[#1DB9A0] font-semibold">Localización</h3>
             <p>
-              375 este de Correos de Costa Rica.<br />
+              75 este de Correos de Costa Rica.<br />
               2do local contiguo a licorera La Noche Buena
             </p>
           </div>

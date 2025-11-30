@@ -158,7 +158,7 @@ export default function Navbar() {
                   CONTACTO
                 </Link>
 
-                <Link href="https://maps.app.goo.gl/o23gmP9oJE3BQ1FWA" className={`${navLink} ${lineColor}`}>
+                <Link href="https://www.google.com/maps/place/Summer+Breeze+Cevicher%C3%ADa/@10.074263,-84.3113298,725m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8fa0596f433a69c1:0x8fa4b234b6daac75!8m2!3d10.074263!4d-84.3113298!16s%2Fg%2F11yppn_4x0?entry=ttu" className={`${navLink} ${lineColor}`}>
                   UBICACIÓN
                 </Link>
               </nav>
@@ -188,9 +188,8 @@ export default function Navbar() {
         ====================================================== */}
         <div className="xl:hidden relative">
           <div
-            className={`h-14 flex items-center justify-between px-5 transition-colors duration-500 ${
-              scrolled ? "bg-white/95 text-[#171717]" : "text-white"
-            }`}
+            className={`h-14 flex items-center justify-between px-5 transition-colors duration-500 ${scrolled ? "bg-white/95 text-[#171717]" : "text-white"
+              }`}
           >
             <button
               aria-label="Menu"
@@ -278,9 +277,15 @@ export default function Navbar() {
                 CONTACTO
               </Link>
 
-              <Link href="https://maps.app.goo.gl/o23gmP9oJE3BQ1FWA" className="text-[18px] font-cinzel hover:text-[#9E3D34]" onClick={() => setMenuOpen(false)}>
-                UBICACIÓN
-              </Link>
+              <Link
+  href="https://www.google.com/maps/place/Summer+Breeze+Cevicher%C3%ADa/@10.074263,-84.3113298,725m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8fa0596f433a69c1:0x8fa4b234b6daac75!8m2!3d10.074263!4d-84.3113298!16s%2Fg%2F11yppn_4x0?entry=ttu"
+  className="text-[18px] font-cinzel hover:text-[#9E3D34]"
+  onClick={() => setMenuOpen(false)}
+  target="_blank"
+>
+  UBICACIÓN
+</Link>
+
             </motion.div>
           </motion.div>
         )}

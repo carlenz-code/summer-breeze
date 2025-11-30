@@ -21,7 +21,7 @@ export default function Historia1() {
         transition={{ duration: 1.1, ease: EASE }}
       >
         <img
-          src="/history/ht2.jpg"
+          src="/history/nosotros1.jpeg"
           alt="Interior del restaurante Summer Breeze"
           className="absolute inset-0 w-full h-full object-cover 
                      object-top md:object-center"
