@@ -129,9 +129,45 @@ export default function Navbar() {
                   NUESTRA HISTORIA
                 </Link>
 
-                <Link href="#menu" className={`${navLink} ${lineColor}`}>
-                  MENÚ
-                </Link>
+                <div className="relative group">
+
+  {/* BOTÓN PRINCIPAL */}
+  <span className={`${navLink} ${lineColor} cursor-pointer`}>
+    MENÚ
+  </span>
+
+  {/* DROPDOWN */}
+  <div
+    className="
+      absolute left-1/2 -translate-x-1/2 top-full mt-4
+      min-w-[210px]
+      rounded-xl bg-white shadow-2xl border border-black/5
+      opacity-0 invisible
+      group-hover:opacity-100 group-hover:visible
+      transition-all duration-300
+      flex flex-col py-3 z-50
+    "
+  >
+
+    <a
+      href="https://1drv.ms/b/c/313b51093dc5d50b/IQDfw5PZ0kYbTK5D0H-ePAwRAdnsh2_X9ArNf0Xz_NC_FNo?e=EcGLaj"
+      target="_blank"
+      className="px-5 py-2 font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+    >
+      Menú local
+    </a>
+
+    <a
+      href="https://1drv.ms/b/c/313b51093dc5d50b/IQC2DWQOR4gSRpL3gZ8ntZ9BAcelSFkGfKuDQVyQRYJRBzY?e=f2lmOB"
+      target="_blank"
+      className="px-5 py-2 font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+    >
+      Menú para llevar
+    </a>
+
+  </div>
+</div>
+
               </nav>
 
               {/* Logo pequeño cuando hay scroll */}
@@ -199,9 +235,45 @@ export default function Navbar() {
               <Bars3CenterLeftIcon className="w-7 h-7" />
             </button>
 
-            <Link href="#menu" className="font-cinzel font-bold text-sm">
-              MENÚ
-            </Link>
+            <div className="relative group">
+
+  {/* BOTÓN PRINCIPAL */}
+  <span className={`${navLink} ${lineColor} cursor-pointer`}>
+    MENÚ
+  </span>
+
+  {/* DROPDOWN */}
+  <div
+    className="
+      absolute left-1/2 -translate-x-1/2 top-full mt-4
+      min-w-[210px]
+      rounded-xl bg-white shadow-2xl border border-black/5
+      opacity-0 invisible
+      group-hover:opacity-100 group-hover:visible
+      transition-all duration-300
+      flex flex-col py-3 z-50
+    "
+  >
+
+    <a
+      href="https://1drv.ms/b/c/313b51093dc5d50b/IQDfw5PZ0kYbTK5D0H-ePAwRAdnsh2_X9ArNf0Xz_NC_FNo?e=EcGLaj"
+      target="_blank"
+      className="px-5 py-2 font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+    >
+      Menú local
+    </a>
+
+    <a
+      href="https://1drv.ms/b/c/313b51093dc5d50b/IQC2DWQOR4gSRpL3gZ8ntZ9BAcelSFkGfKuDQVyQRYJRBzY?e=f2lmOB"
+      target="_blank"
+      className="px-5 py-2 font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+    >
+      Menú para llevar
+    </a>
+
+  </div>
+</div>
+
           </div>
 
           {/* Logo centrado */}

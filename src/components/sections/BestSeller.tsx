@@ -9,20 +9,20 @@ const products = [
   {
     id: "1",
     label: "Ceviche",
-    name: "Corvina Clásico",
-    image: "/products/corvinaclasico.png",
+    name: "Tropical",
+    image: "/products/CevicheTropical.jpeg",
   },
   {
     id: "2",
     label: "Ceviche",
-    name: "Con Mariscos Mixto",
-    image: "/products/mariscosmixto.png",
+    name: "Mexicano",
+    image: "/products/CevicheMexicano.jpeg",
   },
   {
     id: "3",
     label: "Ceviche",
-    name: "Camarón al Coco",
-    image: "/products/camaronalcoco.png",
+    name: "Vuelve a la vida premium",
+    image: "/products/VuelvealavidaPremium.jpeg",
   },
 ];
 
@@ -105,7 +105,7 @@ export default function BestSeller() {
         {/* =========================================================
              COLUMNA IZQUIERDA (DESKTOP)
         ========================================================== */}
-        <div className="hidden md:flex flex-col justify-between bg-[#FBF6F2] text-[#9E3D34] px-[70px] py-[90px]">
+        <div className="hidden md:flex flex-col justify-between bg-[#FBF6F2] text-[#9E3D34] px-[40px] py-[90px]">
 
           {/* Título + descripción */}
           <div className="flex flex-col gap-6">
@@ -117,17 +117,29 @@ export default function BestSeller() {
               Nuestros ceviches estrella, favoritos de los visitantes y recomendados por el chef.
             </p>
           </div>
-          <a
-            href="/menu"
-            className="link-cta font-cormorant font-bold text-[22px] block w-fit"
-            style={{ color: "#9E3D34" }}
-          >
-            <span className="cta-inner flex items-center gap-3">
-              <ArrowUpRightIcon className="arr-left w-5 h-5" />
-              <span className="cta-text">Ver menú</span>
-              <ArrowUpRightIcon className="arr-right w-5 h-5" />
-            </span>
-          </a>
+
+          <div className="flex flex-col gap-4">
+            <a
+              href="https://1drv.ms/b/c/313b51093dc5d50b/IQDfw5PZ0kYbTK5D0H-ePAwRAdnsh2_X9ArNf0Xz_NC_FNo?e=EcGLaj"
+              target="_blank"
+              className="inline-flex items-center gap-2 font-cormorant font-bold text-[22px] link-cta link-cta--brand"
+            >
+              <ArrowUpRightIcon className="arr-left w-4 h-4" />
+              <span>Menú local</span>
+              <ArrowUpRightIcon className="arr-right w-4 h-4" />
+            </a>
+
+            <a
+              href="https://1drv.ms/b/c/313b51093dc5d50b/IQC2DWQOR4gSRpL3gZ8ntZ9BAcelSFkGfKuDQVyQRYJRBzY?e=f2lmOB"
+              target="_blank"
+              className="inline-flex items-center gap-2 font-cormorant font-bold text-[22px] link-cta link-cta--brand"
+            >
+              <ArrowUpRightIcon className="arr-left w-4 h-4" />
+              <span>Menú para llevar</span>
+              <ArrowUpRightIcon className="arr-right w-4 h-4" />
+            </a>
+          </div>
+
 
 
         </div>
