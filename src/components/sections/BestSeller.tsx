@@ -33,7 +33,12 @@ const cardVariants: Variants = {
 
 const imgMotion = {
   rest: { scale: 1, opacity: 1, filter: "brightness(1) contrast(1)" },
-  hover: { scale: 1.07, opacity: 0.95, filter: "brightness(1.12) contrast(1.1)", transition: { duration: 0.7, ease: EASE } },
+  hover: {
+    scale: 1.07,
+    opacity: 0.95,
+    filter: "brightness(1.12) contrast(1.1)",
+    transition: { duration: 0.7, ease: EASE },
+  },
 };
 
 const titleMotion = {
@@ -42,14 +47,28 @@ const titleMotion = {
 };
 
 /* ============================
-      COMPONENTE FINAL
+        COMPONENTE
 =============================== */
 export default function BestSeller() {
-
-  // ✅ ESTADO MODAL PDF
+  // ✅ Estados del modal PDF
   const [pdfOpen, setPdfOpen] = React.useState(false);
   const [pdfUrl, setPdfUrl] = React.useState("");
   const [pdfTitle, setPdfTitle] = React.useState("");
+
+  // ✅ FUNCIÓN INTELIGENTE
+  const openPdfSmart = (url: string, title: string) => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // ✅ En celular → abre en visor real del navegador
+      window.open(url, "_blank");
+    } else {
+      // ✅ En desktop → abre en tu modal bonito
+      setPdfUrl(url);
+      setPdfTitle(title);
+      setPdfOpen(true);
+    }
+  };
 
   return (
     <>
@@ -63,9 +82,7 @@ export default function BestSeller() {
       >
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:sticky md:top-0 md:h-[86vh]">
 
-          {/* =========================================================
-               COLUMNA IZQUIERDA (MOBILE)
-          ========================================================== */}
+          {/* ================= MOBILE LEFT ================= */}
           <div className="md:hidden bg-[#FBF6F2] text-[#9E3D34]">
             <div className="aspect-square p-10 flex flex-col items-center justify-center text-center gap-6">
               <h2 className="font-cinzel-dec text-[36px] leading-tight tracking-wide">
@@ -76,42 +93,40 @@ export default function BestSeller() {
                 Nuestros ceviches y platos más pedidos por los visitantes.
               </p>
 
-              {/* ✅ BOTONES PDF EN MOBILE */}
               <div className="flex flex-col gap-4">
                 <button
-                  onClick={() => {
-                    setPdfUrl("/menus/menu-local.pdf");
-                    setPdfTitle("Menú Local");
-                    setPdfOpen(true);
-                  }}
+                  onClick={() =>
+                    openPdfSmart(
+                      "https://www.summerbreezecr.com/menus/menu-local.pdf",
+                      "Menú Local"
+                    )
+                  }
                   className="inline-flex items-center gap-2 font-cormorant font-bold text-[22px] link-cta link-cta--brand"
                 >
-                  <ArrowUpRightIcon className="arr-left w-4 h-4" />
+                  <ArrowUpRightIcon className="w-4 h-4" />
                   <span>Menú local</span>
-                  <ArrowUpRightIcon className="arr-right w-4 h-4" />
+                  <ArrowUpRightIcon className="w-4 h-4" />
                 </button>
 
                 <button
-                  onClick={() => {
-                    setPdfUrl("/menus/menu-para-llevar.pdf");
-                    setPdfTitle("Menú para llevar");
-                    setPdfOpen(true);
-                  }}
+                  onClick={() =>
+                    openPdfSmart(
+                      "https://www.summerbreezecr.com/menus/menu-para-llevar.pdf",
+                      "Menú para llevar"
+                    )
+                  }
                   className="inline-flex items-center gap-2 font-cormorant font-bold text-[22px] link-cta link-cta--brand"
                 >
-                  <ArrowUpRightIcon className="arr-left w-4 h-4" />
+                  <ArrowUpRightIcon className="w-4 h-4" />
                   <span>Menú para llevar</span>
-                  <ArrowUpRightIcon className="arr-right w-4 h-4" />
+                  <ArrowUpRightIcon className="w-4 h-4" />
                 </button>
               </div>
             </div>
           </div>
 
-          {/* =========================================================
-               COLUMNA IZQUIERDA (DESKTOP)
-          ========================================================== */}
+          {/* ================= DESKTOP LEFT ================= */}
           <div className="hidden md:flex flex-col justify-between bg-[#FBF6F2] text-[#9E3D34] px-[40px] py-[90px]">
-
             <div className="flex flex-col gap-6">
               <h2 className="font-cinzel text-[32px] leading-[1.05] tracking-wide font-semibold">
                 La Selección <br /> Del Chef
@@ -122,39 +137,38 @@ export default function BestSeller() {
               </p>
             </div>
 
-            {/* ✅ BOTONES PDF EN DESKTOP */}
             <div className="flex flex-col gap-4">
               <button
-                onClick={() => {
-                  setPdfUrl("/menus/menu-local.pdf");
-                  setPdfTitle("Menú Local");
-                  setPdfOpen(true);
-                }}
+                onClick={() =>
+                  openPdfSmart(
+                    "https://www.summerbreezecr.com/menus/menu-local.pdf",
+                    "Menú Local"
+                  )
+                }
                 className="inline-flex items-center gap-2 font-cormorant font-bold text-[22px] link-cta link-cta--brand"
               >
-                <ArrowUpRightIcon className="arr-left w-4 h-4" />
+                <ArrowUpRightIcon className="w-4 h-4" />
                 <span>Menú local</span>
-                <ArrowUpRightIcon className="arr-right w-4 h-4" />
+                <ArrowUpRightIcon className="w-4 h-4" />
               </button>
 
               <button
-                onClick={() => {
-                  setPdfUrl("/menus/menu-para-llevar.pdf");
-                  setPdfTitle("Menú para llevar");
-                  setPdfOpen(true);
-                }}
+                onClick={() =>
+                  openPdfSmart(
+                    "https://www.summerbreezecr.com/menus/menu-para-llevar.pdf",
+                    "Menú para llevar"
+                  )
+                }
                 className="inline-flex items-center gap-2 font-cormorant font-bold text-[22px] link-cta link-cta--brand"
               >
-                <ArrowUpRightIcon className="arr-left w-4 h-4" />
+                <ArrowUpRightIcon className="w-4 h-4" />
                 <span>Menú para llevar</span>
-                <ArrowUpRightIcon className="arr-right w-4 h-4" />
+                <ArrowUpRightIcon className="w-4 h-4" />
               </button>
             </div>
           </div>
 
-          {/* =========================================================
-               TARJETAS
-          ========================================================== */}
+          {/* ================= CARDS ================= */}
           <div className="relative md:col-span-3 md:h-[86vh] flex">
             <motion.div
               className="grid grid-cols-1 md:grid-cols-3 relative z-20 w-full"
@@ -176,7 +190,7 @@ export default function BestSeller() {
                   <motion.img
                     src={p.image}
                     alt={p.name}
-                    className="absolute inset-0 w-full h-full object-cover object-center z-0"
+                    className="absolute inset-0 w-full h-full object-cover"
                     variants={imgMotion as any}
                   />
 
@@ -189,9 +203,7 @@ export default function BestSeller() {
                   />
 
                   <motion.div
-                    className="absolute z-20 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,.4)]
-                      text-center md:text-left flex flex-col items-center justify-center
-                      md:items-start md:justify-end p-4 md:p-8 w-full h-full"
+                    className="absolute z-20 text-white text-center md:text-left flex flex-col items-center md:items-start justify-center md:justify-end p-4 md:p-8 w-full h-full"
                     variants={titleMotion as any}
                   >
                     <p className="font-cormorant font-semibold text-[18px] opacity-90 mb-1">
@@ -209,7 +221,7 @@ export default function BestSeller() {
         </div>
       </motion.section>
 
-      {/* ✅ MODAL PDF GLOBAL */}
+      {/* ✅ MODAL PDF */}
       <PdfModal
         isOpen={pdfOpen}
         onClose={() => setPdfOpen(false)}

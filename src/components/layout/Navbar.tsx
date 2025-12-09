@@ -156,7 +156,8 @@ export default function Navbar() {
                       >
                         <button
                           onClick={() => {
-                            setPdfUrl("/menus/menu-local.pdf");
+                            setPdfUrl("https://www.summerbreezecr.com/menus/menu-local.pdf");
+
                             setPdfTitle("Menú local");
                             setPdfOpen(true);
                             setMobileMenuOptions(false);
@@ -168,7 +169,8 @@ export default function Navbar() {
 
                         <button
                           onClick={() => {
-                            setPdfUrl("/menus/menu-para-llevar.pdf");
+                            setPdfUrl("https://www.summerbreezecr.com/menus/menu-para-llevar.pdf");
+
                             setPdfTitle("Menú para llevar");
                             setPdfOpen(true);
                             setMobileMenuOptions(false);
@@ -271,7 +273,8 @@ export default function Navbar() {
     >
       <button
         onClick={() => {
-          setPdfUrl("/menus/menu-local.pdf");
+          setPdfUrl("https://www.summerbreezecr.com/menus/menu-local.pdf");
+
           setPdfTitle("Menú local");
           setPdfOpen(true);
           setMobileMenuOptions(false);
@@ -283,7 +286,8 @@ export default function Navbar() {
 
       <button
         onClick={() => {
-          setPdfUrl("/menus/menu-para-llevar.pdf");
+          setPdfUrl("https://www.summerbreezecr.com/menus/menu-para-llevar.pdf");
+
           setPdfTitle("Menú para llevar");
           setPdfOpen(true);
           setMobileMenuOptions(false);
@@ -370,7 +374,8 @@ export default function Navbar() {
                 <button
                   className="text-[18px] font-cinzel text-left hover:text-[#9E3D34]"
                   onClick={() => {
-                    setPdfUrl("/menus/menu-local.pdf");
+                    setPdfUrl("https://www.summerbreezecr.com/menus/menu-local.pdf");
+
                     setPdfTitle("Menú Local");
                     setPdfOpen(true);
                     setMenuOpen(false);
@@ -382,7 +387,8 @@ export default function Navbar() {
                 <button
                   className="text-[18px] font-cinzel text-left hover:text-[#9E3D34]"
                   onClick={() => {
-                    setPdfUrl("/menus/menu-para-llevar.pdf");
+                    setPdfUrl("https://www.summerbreezecr.com/menus/menu-para-llevar.pdf");
+
                     setPdfTitle("Menú Para Llevar");
                     setPdfOpen(true);
                     setMenuOpen(false);

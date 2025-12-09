@@ -32,13 +32,13 @@ export default function PdfModal({
           onClick={onClose}
         >
           <motion.div
-            initial={{ scale: 0.94, opacity: 0 }}
+            initial={{ scale: 0.96, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.94, opacity: 0 }}
+            exit={{ scale: 0.96, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="
               bg-white w-full
-              h-[100dvh] md:h-[88vh]
+              h-[100svh] md:h-[88vh]
               md:max-w-5xl
               rounded-none md:rounded-2xl
               overflow-hidden shadow-2xl
@@ -47,8 +47,13 @@ export default function PdfModal({
             onClick={(e) => e.stopPropagation()}
           >
             {/* ===== HEADER ===== */}
-            <div className="flex items-center justify-between px-5 py-3 border-b bg-white">
-              <h3 className="font-cinzel text-[18px] md:text-[20px] font-bold text-[#9E3D34]">
+            <div className="
+              flex items-center justify-between
+              px-4 py-3
+              border-b bg-white
+              pt-[env(safe-area-inset-top)]
+            ">
+              <h3 className="font-cinzel text-[17px] md:text-[20px] font-bold text-[#9E3D34]">
                 {title}
               </h3>
 
@@ -58,11 +63,16 @@ export default function PdfModal({
             </div>
 
             {/* ===== VISOR PDF ===== */}
-            <div className="flex-1 bg-black">
+            <div className="flex-1 bg-white overflow-hidden">
               <iframe
                 src={pdfUrl}
-                className="w-full h-full"
                 title={title}
+                className="w-full h-full"
+                style={{
+                  border: "none",
+                  touchAction: "pan-x pan-y",
+                }}
+                allow="autoplay"
               />
             </div>
           </motion.div>
