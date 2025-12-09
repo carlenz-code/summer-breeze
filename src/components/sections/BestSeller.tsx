@@ -9,7 +9,7 @@ import PdfModal from "@/components/ui/PdfModal";
 const products = [
   { id: "1", label: "Ceviche", name: "Tropical", image: "/products/CevicheTropical.jpeg" },
   { id: "2", label: "Ceviche", name: "Mexicano", image: "/products/CevicheMexicano.jpeg" },
-  { id: "3", label: "Ceviche", name: "Vuelve a la vida premium", image: "/products/VuelvealavidaPremium.jpeg" },
+  { id: "3", label: "Ceviche", name: "Vuelve a la vida premium", image: "/products/Vuelvealavidapremium.jpeg" },
 ];
 
 /* ======== Easing ======== */
