@@ -41,16 +41,7 @@ export default function PdfModal({
               </h3>
 
               <div className="flex items-center gap-4">
-                <a
-                  href={pdfUrl}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[14px] font-cormorant font-semibold text-[#9E3D34] hover:underline"
-                >
-                  <ArrowDownTrayIcon className="w-5 h-5" />
-                  Descargar
-                </a>
+                
 
                 <button onClick={onClose}>
                   <XMarkIcon className="w-7 h-7 text-[#9E3D34]" />

@@ -17,6 +17,8 @@ export default function Navbar() {
   const [pdfOpen, setPdfOpen] = React.useState(false);
   const [pdfUrl, setPdfUrl] = React.useState("");
   const [pdfTitle, setPdfTitle] = React.useState("");
+  const [mobileMenuOptions, setMobileMenuOptions] = React.useState(false);
+
 
   /* --- FIX REAL SCALE FOR DESKTOP (>= 1280 = xl) --- */
   React.useEffect(() => {
@@ -135,49 +137,50 @@ export default function Navbar() {
                   </Link>
 
                   {/* MENÚ con dropdown -> ahora abre PDFs en modal */}
-                  <div className="relative group">
-                    {/* BOTÓN PRINCIPAL */}
-                    <span className={`${navLink} ${lineColor} cursor-pointer`}>
-                      MENÚ
-                    </span>
-
-                    {/* DROPDOWN */}
-                    <div
-                      className="
-                        absolute left-1/2 -translate-x-1/2 top-full mt-4
-                        min-w-[210px]
-                        rounded-xl bg-white shadow-2xl border border-black/5
-                        opacity-0 invisible
-                        group-hover:opacity-100 group-hover:visible
-                        transition-all duration-300
-                        flex flex-col py-3 z-50
-                      "
+                  <div className="relative">
+                    <button
+                      onClick={() => setMobileMenuOptions(!mobileMenuOptions)}
+                      className={`${navLink} ${lineColor} cursor-pointer`}
                     >
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setPdfUrl("/menus/menu-local.pdf");
-                          setPdfTitle("Menú local");
-                          setPdfOpen(true);
-                        }}
-                        className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
-                      >
-                        Menú local
-                      </button>
+                      MENÚ
+                    </button>
 
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setPdfUrl("/menus/menu-para-llevar.pdf");
-                          setPdfTitle("Menú para llevar");
-                          setPdfOpen(true);
-                        }}
-                        className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+                    {mobileMenuOptions && (
+                      <div
+                        className="
+        absolute left-1/2 -translate-x-1/2 top-full mt-4
+        min-w-[210px]
+        rounded-xl bg-white shadow-2xl border border-black/5
+        flex flex-col py-3 z-50
+      "
                       >
-                        Menú para llevar
-                      </button>
-                    </div>
+                        <button
+                          onClick={() => {
+                            setPdfUrl("/menus/menu-local.pdf");
+                            setPdfTitle("Menú local");
+                            setPdfOpen(true);
+                            setMobileMenuOptions(false);
+                          }}
+                          className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+                        >
+                          Menú local
+                        </button>
+
+                        <button
+                          onClick={() => {
+                            setPdfUrl("/menus/menu-para-llevar.pdf");
+                            setPdfTitle("Menú para llevar");
+                            setPdfOpen(true);
+                            setMobileMenuOptions(false);
+                          }}
+                          className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+                        >
+                          Menú para llevar
+                        </button>
+                      </div>
+                    )}
                   </div>
+
                 </nav>
 
                 {/* Logo pequeño cuando hay scroll */}
@@ -237,9 +240,8 @@ export default function Navbar() {
           ====================================================== */}
           <div className="xl:hidden relative">
             <div
-              className={`h-14 flex items-center justify-between px-5 transition-colors duration-500 ${
-                scrolled ? "bg-white/95 text-[#171717]" : "text-white"
-              }`}
+              className={`h-14 flex items-center justify-between px-5 transition-colors duration-500 ${scrolled ? "bg-white/95 text-[#171717]" : "text-white"
+                }`}
             >
               <button
                 aria-label="Menu"
@@ -250,49 +252,50 @@ export default function Navbar() {
               </button>
 
               {/* MENÚ en top bar mobile: mantenemos estructura, solo cambiamos los <a> por modal */}
-              <div className="relative group">
-                {/* BOTÓN PRINCIPAL */}
-                <span className={`${navLink} ${lineColor} cursor-pointer`}>
-                  MENÚ
-                </span>
+              <div className="relative">
+  <button
+    onClick={() => setMobileMenuOptions(!mobileMenuOptions)}
+    className={`${navLink} ${lineColor} cursor-pointer`}
+  >
+    MENÚ
+  </button>
 
-                {/* DROPDOWN (aunque en mobile hover es tap, respetamos tu estructura) */}
-                <div
-                  className="
-                    absolute left-1/2 -translate-x-1/2 top-full mt-4
-                    min-w-[210px]
-                    rounded-xl bg-white shadow-2xl border border-black/5
-                    opacity-0 invisible
-                    group-hover:opacity-100 group-hover:visible
-                    transition-all duration-300
-                    flex flex-col py-3 z-50
-                  "
-                >
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setPdfUrl("/menus/menu-local.pdf");
-                      setPdfTitle("Menú local");
-                      setPdfOpen(true);
-                    }}
-                    className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
-                  >
-                    Menú local
-                  </button>
+  {mobileMenuOptions && (
+    <div
+      className="
+        absolute left-1/2 -translate-x-1/2 top-full mt-4
+        min-w-[210px]
+        rounded-xl bg-white shadow-2xl border border-black/5
+        flex flex-col py-3 z-50
+      "
+    >
+      <button
+        onClick={() => {
+          setPdfUrl("/menus/menu-local.pdf");
+          setPdfTitle("Menú local");
+          setPdfOpen(true);
+          setMobileMenuOptions(false);
+        }}
+        className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+      >
+        Menú local
+      </button>
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setPdfUrl("/menus/menu-para-llevar.pdf");
-                      setPdfTitle("Menú para llevar");
-                      setPdfOpen(true);
-                    }}
-                    className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
-                  >
-                    Menú para llevar
-                  </button>
-                </div>
-              </div>
+      <button
+        onClick={() => {
+          setPdfUrl("/menus/menu-para-llevar.pdf");
+          setPdfTitle("Menú para llevar");
+          setPdfOpen(true);
+          setMobileMenuOptions(false);
+        }}
+        className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+      >
+        Menú para llevar
+      </button>
+    </div>
+  )}
+</div>
+
             </div>
 
             {/* Logo centrado */}
@@ -342,7 +345,7 @@ export default function Navbar() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="font-cinzel text-[22px] font-bold">Menú</h3>
+                  <h3 className="font-cinzel text-[22px] font-bold">Summer Breeze</h3>
                   <button onClick={() => setMenuOpen(false)}>
                     <XMarkIcon className="w-7 h-7" />
                   </button>
@@ -365,28 +368,28 @@ export default function Navbar() {
                 </Link>
 
                 <button
-  className="text-[18px] font-cinzel text-left hover:text-[#9E3D34]"
-  onClick={() => {
-    setPdfUrl("/menus/menu-local.pdf");
-    setPdfTitle("Menú Local");
-    setPdfOpen(true);
-    setMenuOpen(false);
-  }}
->
-  MENÚ LOCAL
-</button>
+                  className="text-[18px] font-cinzel text-left hover:text-[#9E3D34]"
+                  onClick={() => {
+                    setPdfUrl("/menus/menu-local.pdf");
+                    setPdfTitle("Menú Local");
+                    setPdfOpen(true);
+                    setMenuOpen(false);
+                  }}
+                >
+                  MENÚ LOCAL
+                </button>
 
-<button
-  className="text-[18px] font-cinzel text-left hover:text-[#9E3D34]"
-  onClick={() => {
-    setPdfUrl("/menus/menu-para-llevar.pdf");
-    setPdfTitle("Menú Para Llevar");
-    setPdfOpen(true);
-    setMenuOpen(false);
-  }}
->
-  MENÚ PARA LLEVAR
-</button>
+                <button
+                  className="text-[18px] font-cinzel text-left hover:text-[#9E3D34]"
+                  onClick={() => {
+                    setPdfUrl("/menus/menu-para-llevar.pdf");
+                    setPdfTitle("Menú Para Llevar");
+                    setPdfOpen(true);
+                    setMenuOpen(false);
+                  }}
+                >
+                  MENÚ PARA LLEVAR
+                </button>
 
 
                 <Link
