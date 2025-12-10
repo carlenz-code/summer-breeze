@@ -3,7 +3,6 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
-import PdfModal from "@/components/ui/PdfModal";
 
 /* ======== Productos ======== */
 const products = [
@@ -50,26 +49,6 @@ const titleMotion = {
         COMPONENTE
 =============================== */
 export default function BestSeller() {
-  // ✅ Estados del modal PDF
-  const [pdfOpen, setPdfOpen] = React.useState(false);
-  const [pdfUrl, setPdfUrl] = React.useState("");
-  const [pdfTitle, setPdfTitle] = React.useState("");
-
-  // ✅ FUNCIÓN INTELIGENTE
-  const openPdfSmart = (url: string, title: string) => {
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      // ✅ En celular → abre en visor real del navegador
-      window.open(url, "_blank");
-    } else {
-      // ✅ En desktop → abre en tu modal bonito
-      setPdfUrl(url);
-      setPdfTitle(title);
-      setPdfOpen(true);
-    }
-  };
-
   return (
     <>
       <motion.section
@@ -94,33 +73,29 @@ export default function BestSeller() {
               </p>
 
               <div className="flex flex-col gap-4">
-                <button
-                  onClick={() =>
-                    openPdfSmart(
-                      "https://www.summerbreezecr.com/menus/menu-local.pdf",
-                      "Menú Local"
-                    )
-                  }
+                {/* ✅ LINK DIRECTO */}
+                <a
+                  href="https://www.summerbreezecr.com/menus/menu-local.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 font-cormorant font-bold text-[22px] link-cta link-cta--brand"
                 >
                   <ArrowUpRightIcon className="w-4 h-4" />
                   <span>Menú local</span>
                   <ArrowUpRightIcon className="w-4 h-4" />
-                </button>
+                </a>
 
-                <button
-                  onClick={() =>
-                    openPdfSmart(
-                      "https://www.summerbreezecr.com/menus/menu-para-llevar.pdf",
-                      "Menú para llevar"
-                    )
-                  }
+                {/* ✅ LINK DIRECTO */}
+                <a
+                  href="https://www.summerbreezecr.com/menus/menu-para-llevar.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 font-cormorant font-bold text-[22px] link-cta link-cta--brand"
                 >
                   <ArrowUpRightIcon className="w-4 h-4" />
                   <span>Menú para llevar</span>
                   <ArrowUpRightIcon className="w-4 h-4" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -138,33 +113,29 @@ export default function BestSeller() {
             </div>
 
             <div className="flex flex-col gap-4">
-              <button
-                onClick={() =>
-                  openPdfSmart(
-                    "https://www.summerbreezecr.com/menus/menu-local.pdf",
-                    "Menú Local"
-                  )
-                }
+              {/* ✅ LINK DIRECTO */}
+              <a
+                href="https://www.summerbreezecr.com/menus/menu-local.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-cormorant font-bold text-[22px] link-cta link-cta--brand"
               >
                 <ArrowUpRightIcon className="w-4 h-4" />
                 <span>Menú local</span>
                 <ArrowUpRightIcon className="w-4 h-4" />
-              </button>
+              </a>
 
-              <button
-                onClick={() =>
-                  openPdfSmart(
-                    "https://www.summerbreezecr.com/menus/menu-para-llevar.pdf",
-                    "Menú para llevar"
-                  )
-                }
+              {/* ✅ LINK DIRECTO */}
+              <a
+                href="https://www.summerbreezecr.com/menus/menu-para-llevar.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-cormorant font-bold text-[22px] link-cta link-cta--brand"
               >
                 <ArrowUpRightIcon className="w-4 h-4" />
                 <span>Menú para llevar</span>
                 <ArrowUpRightIcon className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -220,14 +191,6 @@ export default function BestSeller() {
           </div>
         </div>
       </motion.section>
-
-      {/* ✅ MODAL PDF */}
-      <PdfModal
-        isOpen={pdfOpen}
-        onClose={() => setPdfOpen(false)}
-        pdfUrl={pdfUrl}
-        title={pdfTitle}
-      />
     </>
   );
 }

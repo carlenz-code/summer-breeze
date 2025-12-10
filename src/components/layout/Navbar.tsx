@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Bars3CenterLeftIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import PdfModal from "@/components/ui/PdfModal";
+
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -154,31 +154,27 @@ export default function Navbar() {
         flex flex-col py-3 z-50
       "
                       >
-                        <button
-                          onClick={() => {
-                            setPdfUrl("https://www.summerbreezecr.com/menus/menu-local.pdf");
+                        <a
+  href="https://www.summerbreezecr.com/menus/menu-local.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+  onClick={() => setMobileMenuOptions(false)}
+>
+  Menú local
+</a>
 
-                            setPdfTitle("Menú local");
-                            setPdfOpen(true);
-                            setMobileMenuOptions(false);
-                          }}
-                          className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
-                        >
-                          Menú local
-                        </button>
 
-                        <button
-                          onClick={() => {
-                            setPdfUrl("https://www.summerbreezecr.com/menus/menu-para-llevar.pdf");
+                        <a
+  href="https://www.summerbreezecr.com/menus/menu-para-llevar.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+  onClick={() => setMobileMenuOptions(false)}
+>
+  Menú para llevar
+</a>
 
-                            setPdfTitle("Menú para llevar");
-                            setPdfOpen(true);
-                            setMobileMenuOptions(false);
-                          }}
-                          className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
-                        >
-                          Menú para llevar
-                        </button>
                       </div>
                     )}
                   </div>
@@ -271,31 +267,27 @@ export default function Navbar() {
         flex flex-col py-3 z-50
       "
     >
-      <button
-        onClick={() => {
-          setPdfUrl("https://www.summerbreezecr.com/menus/menu-local.pdf");
+      <a
+  href="https://www.summerbreezecr.com/menus/menu-local.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+  onClick={() => setMobileMenuOptions(false)}
+>
+  Menú local
+</a>
 
-          setPdfTitle("Menú local");
-          setPdfOpen(true);
-          setMobileMenuOptions(false);
-        }}
-        className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
-      >
-        Menú local
-      </button>
 
-      <button
-        onClick={() => {
-          setPdfUrl("https://www.summerbreezecr.com/menus/menu-para-llevar.pdf");
+     <a
+  href="https://www.summerbreezecr.com/menus/menu-para-llevar.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
+  onClick={() => setMobileMenuOptions(false)}
+>
+  Menú para llevar
+</a>
 
-          setPdfTitle("Menú para llevar");
-          setPdfOpen(true);
-          setMobileMenuOptions(false);
-        }}
-        className="px-5 py-2 text-left font-cinzel text-[13px] text-[#9E3D34] hover:bg-[#FBF6F2]"
-      >
-        Menú para llevar
-      </button>
     </div>
   )}
 </div>
@@ -371,31 +363,27 @@ export default function Navbar() {
                   NUESTRA HISTORIA
                 </Link>
 
-                <button
-                  className="text-[18px] font-cinzel text-left hover:text-[#9E3D34]"
-                  onClick={() => {
-                    setPdfUrl("https://www.summerbreezecr.com/menus/menu-local.pdf");
+                <a
+  href="https://www.summerbreezecr.com/menus/menu-local.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[18px] font-cinzel hover:text-[#9E3D34]"
+  onClick={() => setMenuOpen(false)}
+>
+  MENÚ LOCAL
+</a>
 
-                    setPdfTitle("Menú Local");
-                    setPdfOpen(true);
-                    setMenuOpen(false);
-                  }}
-                >
-                  MENÚ LOCAL
-                </button>
 
-                <button
-                  className="text-[18px] font-cinzel text-left hover:text-[#9E3D34]"
-                  onClick={() => {
-                    setPdfUrl("https://www.summerbreezecr.com/menus/menu-para-llevar.pdf");
+               <a
+  href="https://www.summerbreezecr.com/menus/menu-para-llevar.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[18px] font-cinzel hover:text-[#9E3D34]"
+  onClick={() => setMenuOpen(false)}
+>
+  MENÚ PARA LLEVAR
+</a>
 
-                    setPdfTitle("Menú Para Llevar");
-                    setPdfOpen(true);
-                    setMenuOpen(false);
-                  }}
-                >
-                  MENÚ PARA LLEVAR
-                </button>
 
 
                 <Link
@@ -429,12 +417,7 @@ export default function Navbar() {
       </motion.header>
 
       {/* 🔹 MODAL PDF GLOBAL (NO TOCA EL LAYOUT DEL NAVBAR) */}
-      <PdfModal
-        isOpen={pdfOpen}
-        onClose={() => setPdfOpen(false)}
-        pdfUrl={pdfUrl}
-        title={pdfTitle}
-      />
+     
     </>
   );
 }
